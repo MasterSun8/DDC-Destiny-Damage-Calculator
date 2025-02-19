@@ -1,63 +1,65 @@
-::root{
-    --sum: 0;
+* {
+    --size: 200px;
 }
 
-#piechart{
-	transform: rotate(270deg);
-	width: 200px;
-	height: 200px;
-	background: var(--background);
-	scale: -1 1;
+#piechart {
+    transform: rotate(270deg);
+    width: var(--size);
+    height: var(--size);
+    background: var(--background);
+    scale: -1 1;
+    display: grid;
+    place-items: center;
+    grid-template-areas: "inner-div";
+}
+
+#piechart svg {
+    width: var(--size);
+    height: var(--size);
+    z-index: auto;
+    grid-area: inner-div;
+    pointer-events: none;
 }
 
 #piechart circle {
-	stroke: var(--primary);
-	r: 25%;
-	cx: 50%;
-	cy: 50%;
-	stroke-width: 50%;
-	fill: none;
+    stroke: var(--primary);
+    r: 25%;
+    cx: 50%;
+    cy: 50%;
+    stroke-width: 50%;
+    fill: none;
+    pointer-events: all;
+    z-index: -1;
 }
 
-#piechart #abilities{
+#piechart #abilities {
     stroke: black;
     stroke-dasharray: var(--abilities) 200%;
-    --sum: calc(var(--sum) + var(--abilities))
 }
 
-#piechart #kinetic{
+#piechart #kinetic {
     stroke: aliceblue;
     stroke-dasharray: var(--kinetic) 200%;
-    stroke-dashoffset: var(--sum);
-    --sum: calc(var(--sum) + var(--abilities))
+    stroke-dashoffset: calc(-1 * var(--abilities));
 }
 
-#piechart #arc{
-    stroke: aqua;
-    stroke-dasharray: var(--arc) 200%;
-    stroke-dashoffset: -35%;
+#piechart #energy {
+    stroke: greenyellow;
+    stroke-dasharray: var(--energy) 200%;
+    stroke-dashoffset: calc((-1 * var(--abilities)) - var(--kinetic));
 }
 
-#piechart #void{
+#piechart #heavy {
     stroke: indigo;
-    stroke-dasharray: var(--void) 200%;
-    stroke-dashoffset: -50%;
+    stroke-dasharray: var(--heavy) 200%;
+    stroke-dashoffset: calc((-1 * var(--abilities)) - var(--kinetic) - var(--energy));
 }
 
-#piechart #solar{
-    stroke: orange;
-    stroke-dasharray: var(--solar) 200%;
-    stroke-dashoffset: -65%;
+#piechart circle:hover {
+    z-index: 5;
+    transform: translate(1vh);
 }
 
-#piechart #stasis{
-    stroke: darkblue;
-    stroke-dasharray: var(--stasis) 200%;
-    stroke-dashoffset: -80%;
-}
-
-#piechart #strand{
-    stroke: green;
-    stroke-dasharray: var(--strand) 200%;
-    stroke-dashoffset: -95%;
+#piechart svg:has(+ #piechart circle:hover) {
+    visibility: hidden;
 }

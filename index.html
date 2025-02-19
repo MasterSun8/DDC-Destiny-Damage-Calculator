@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="index.css" />
 	<link rel="stylesheet" href="chart.css" />
 	<script defer src="index.js"></script>
+	<script defer src="chart.js"></script>
 </head>
 
 <body>
@@ -15,16 +16,14 @@
 	<h1>scar is a cutie and grim is a hottie ;3</h1>
 </body>
 
-<svg id="piechart" style="--abilities: 20%; --arc: 20%; --solar: 20%; --void: 20%; --stasis: 20%; --strand: 20%; --kinetic: 20%">
-	<!-- <circle id="weapons"></circle> -->
-	<circle id="abilities"></circle>
-	<circle id="kinetic"/>
-	<circle id="arc"/>
-	<circle id="void"/>
-	<circle id="solar"/>
-	<circle id="stasis"/>
-	<circle id="strand"/>
-</svg>
+<div id="piechart" style="--abilities: 39.25%; --kinetic: 39.25%; --energy: 39.25%; --heavy: 39.25%;"> <!-- normalize for 157%-->
+	<svg><circle id="abilities"/></svg>
+	<svg><circle id="kinetic"/></svg>
+	<svg><circle id="energy"/></svg>
+	<svg><circle id="heavy"/></svg>
+</div>
+
+<!-- abilities, kineticslot, energyslot, heavyslot-->
 
 <button id="myBtnAdd">add value to chart</button>
 <button id="myBtnRemove">remove value from chart</button>
