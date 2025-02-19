@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DDC</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="chart.css" />
+    <script defer src="index.js"></script>
+    <script defer src="chart.js"></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>date ;3</title>
-	<link rel="stylesheet" href="index.css" />
-	<link rel="stylesheet" href="chart.css" />
-	<script defer src="index.js"></script>
-	<script defer src="chart.js"></script>
-</head>
+  <body>
+    <button id="darkmode" onclick="toggleMode()">Dark Mode</button>
+    <h1>DDC<br />Destiny Damage Calculator</h1>
+  </body>
 
-<body>
-	<button id="darkmode" onclick="toggleMode()">Dark Mode</button>
-	<h1>scar is a cutie and grim is a hottie ;3</h1>
-</body>
+  <div
+    id="piechart"
+    style="
+      --abilities: 39.25%;
+      --abilities-left: 1vh;
+      --abilities-top: 1vh;
+      --kinetic: 39.25%;
+      --kinetic-left: 1vh;
+      --kinetic-top: 1vh;
+      --energy: 39.25%;
+      --energy-left: 1vh;
+      --energy-top: 1vh;
+      --heavy: 39.25%;
+      --heavy-left: 1vh;
+      --heavy-top: 1vh;
+    "
+  >
+    <!-- normalize for PI*50%-->
+    <svg>
+      <circle id="abilities" />
+    </svg>
+    <svg>
+      <circle id="kinetic" />
+    </svg>
+    <svg>
+      <circle id="energy" />
+    </svg>
+    <svg>
+      <circle id="heavy" />
+    </svg>
+  </div>
 
-<div id="piechart" style="--abilities: 39.25%; --kinetic: 39.25%; --energy: 39.25%; --heavy: 39.25%;"> <!-- normalize for 157%-->
-	<svg><circle id="abilities"/></svg>
-	<svg><circle id="kinetic"/></svg>
-	<svg><circle id="energy"/></svg>
-	<svg><circle id="heavy"/></svg>
-</div>
+  <!-- abilities, kineticslot, energyslot, heavyslot-->
 
-<!-- abilities, kineticslot, energyslot, heavyslot-->
+  <button id="myBtnAdd">add value to chart</button>
+  <button id="myBtnRemove">remove value from chart</button>
 
-<button id="myBtnAdd">add value to chart</button>
-<button id="myBtnRemove">remove value from chart</button>
-
-<canvas id="myChart"></canvas>
-
-
-</html> 
+  <canvas id="myChart"></canvas>
+</html>
